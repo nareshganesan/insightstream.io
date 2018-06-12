@@ -6,7 +6,8 @@
           class="article lighten--text"
           style="list-style-type: none;"
           v-for="(article, idx) in articles" :key="idx">
-          <div class="title-font" @click="toRoute('vuejs_home')"> [{{article.created}}] {{article.title}} </div>
+          <div v-if="article.link.indexOf('http') >= 0" class="title-font" @click="toExtRoute(article.link)"> [{{article.created}}] {{article.title}} </div>
+          <div v-else class="title-font" @click="toRoute('vuejs_home')"> [{{article.created}}] {{article.title}} </div>
         </li>
       </ul>
     </v-flex>
@@ -22,13 +23,18 @@ export default {
     show: false,
     isList: false,
     articles: [
-      {title: 'Vuejs 2 + vuetifyjs content sharing template', created: 'June 18\'', link: 'vuejs_home'}
+      {title: 'Vuejs 2 + vuetifyjs content sharing template', created: 'June 18\'', link: 'vuejs_home'},
+      {title: 'Go + Gin + ElasticSearch - Modular rest engine', created: 'June 18\'', link: 'https://github.com/nareshganesan/services/tree/dev'}
     ]
   }),
   methods: {
     toRoute (rname, rparams = {}, query = {}) {
       this.dialog = true
       this.$router.push({name: rname, params: rparams, query: query})
+    },
+    toExtRoute (rname) {
+      window.location = rname
+      return false
     }
   }
 }
@@ -37,7 +43,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css?family=Archivo,Work+Sans,Playfair+Display')
+@import url('https://fonts.googleapis.com/css?family=Archivo')
 
 .article {
   /*font-family: 'Archivo', sans-serif, Helvetica;*/
@@ -49,10 +55,12 @@ export default {
 
 .title-font {
   /*Google fonts: Archivo*/
-  font-size: 18px !important;
+  font-family: 'Archivo', sans-serif, Helvetica;
+  font-size: 16px !important;
   font-weight: 400;
   cursor: pointer;
-  color: grey;
+  color: #616161;
+  line-height: 1.8;
 }
 
 .content-font {
