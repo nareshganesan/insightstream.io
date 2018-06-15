@@ -15,7 +15,7 @@
           >
             <v-layout
               column class="media"
-              @click.stop="toRoute('view_article',{id: card.id})"
+              @click.stop="toRoute('vuejs_view_article',{id: card.id})"
               style="cursor: pointer"
             >
               <v-card-title>
@@ -33,7 +33,7 @@
           <v-card-title>
             <div>
               <v-flex class="title"
-                @click.stop="toRoute('view_article',{id: card.id})"
+                @click.stop="toRoute('vuejs_view_article',{id: card.id})"
                 style="cursor: pointer"
               >{{card.title}}</v-flex>
               <v-flex class="body-1">
