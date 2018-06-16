@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex d-flex
         v-for="(card, idx) in cards"
-        v-bind="{ [`xs${card.flex}`]: true }"
+        v-bind="{ [`xs${flex}`]: true }"
         :key="idx"
       >
         <v-card>
@@ -73,7 +73,6 @@ export default {
         title: 'Pre-fab homes',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/house.jpg',
-        flex: 4,
         created: '15 min',
         topics: ['deep learning', 'machine learning', 'A.I', 'distributed systems'],
         id: 1
@@ -83,7 +82,6 @@ export default {
         title: 'Favorite road trips',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/road.jpg',
-        flex: 4,
         created: '15 min',
         topics: ['deep learning', 'machine learning', 'A.I'],
         id: 2
@@ -93,7 +91,6 @@ export default {
         title: 'Best airlines',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out? Some more content for testing list layout",
         src: 'https://vuetifyjs.com/static/doc-images/cards/plane.jpg',
-        flex: 4,
         created: '15 min',
         topics: ['deep learning', 'machine learning'],
         id: 3
@@ -103,7 +100,6 @@ export default {
         title: 'Pre-fab homes',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/house.jpg',
-        flex: 4,
         created: '15 min',
         topics: ['deep learning', 'machine learning', 'A.I'],
         id: 5
@@ -113,7 +109,6 @@ export default {
         title: 'Favorite road trips',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/road.jpg',
-        flex: 4,
         created: '15 min',
         topics: ['deep learning', 'machine learning', 'A.I'],
         id: 6
@@ -122,7 +117,6 @@ export default {
         title: 'Best airlines',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/plane.jpg',
-        flex: 4,
         created: '15 min',
         topics: ['deep learning', 'machine learning', 'A.I'],
         id: 7
@@ -131,7 +125,6 @@ export default {
         title: 'Pre-fab homes',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/house.jpg',
-        flex: 4,
         created: '15 min',
         topics: [],
         id: 8
@@ -140,7 +133,6 @@ export default {
         title: 'Favorite road trips',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/road.jpg',
-        flex: 4,
         created: '15 min',
         id: 9
       },
@@ -148,7 +140,6 @@ export default {
         title: 'Best airlines',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/plane.jpg',
-        flex: 4,
         created: '15 min',
         id: 10
       },
@@ -156,7 +147,6 @@ export default {
         title: 'Pre-fab homes',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/house.jpg',
-        flex: 4,
         created: '15 min',
         id: 11
       },
@@ -164,7 +154,6 @@ export default {
         title: 'Favorite road trips',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/road.jpg',
-        flex: 4,
         created: '15 min',
         id: 12
       },
@@ -172,12 +161,22 @@ export default {
         title: 'Best airlines',
         subtitle: "Ali Connors, I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
         src: 'https://vuetifyjs.com/static/doc-images/cards/plane.jpg',
-        flex: 4,
         created: '15 min',
         id: 13
       }
     ]
   }),
+  computed: {
+    flex () {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return 12
+        case 'sm': return 6
+        case 'md': return 4
+        case 'lg': return 3
+        case 'xl': return 2
+      }
+    }
+  },
   methods: {
     toRoute (rname, rparams = {}, query = {}) {
       this.dialog = true
