@@ -170,7 +170,7 @@
 }
 .markdown {
   box-sizing: border-box;
-  margin: 15px;
+  margin: 15px 0px;
   outline: none;
   font-family: inherit;
   font-size: 18px;

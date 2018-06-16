@@ -48,6 +48,6 @@ export default {
 .autosize {
   padding: 10px;
   height: 100%;
-  max-height: 500px;
+  max-height: 300px;
 }
 </style>
