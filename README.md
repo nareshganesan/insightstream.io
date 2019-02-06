@@ -1,3 +1,6 @@
+[![MadeWithVueJs.com shield](https://madewithvuejs.com/storage/repo-shields/766-shield.svg)](https://madewithvuejs.com/p/insightstream/shield-link)
+
+
 # insightstream.io
 
 > Stream of software engineering and data insights
